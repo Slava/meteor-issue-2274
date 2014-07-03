@@ -1,10 +1,12 @@
 function fillCollection(count) {
   for(var i = 0; i < count; i++) {
-    TestCollection.insert({
-      data: "Dummy data #" + i,
-      sortField: i,
-      toDelete: true
-    })
+    (function (i) {
+      TestCollection.insert({
+        data: "Dummy data #" + i,
+        sortField: i,
+        toDelete: true
+      })
+    })(i)
   }
 }
 
